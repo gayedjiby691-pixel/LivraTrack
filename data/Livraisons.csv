@@ -1,0 +1,7 @@
+N°,Entreprise,Client,Tel client,Adresse,Colis,À encaisser,Livreur,Statut,Encaissé,Mode paiement,Motif échec,Repère Dakar
+101,Dakar Express Logistique,Fatou Sall,+221774501234,Sacré-Cœur 3 Pyrotechnie,Robe en soie + Sandales,25000,Moussa Diop (Livreur 1),Livré,25000,Wave,,Face Boulangerie Jaune villa 124
+102,Dakar Express Logistique,Cheikh Tidiane Sy,+221783204567,Mermoz Pyrotechnie,Montre connectée Smartwatch,45000,Moussa Diop (Livreur 1),En route,0,Espèces,,Près de l'école BEM
+103,Dakar Express Logistique,Aïssatou Diallo,+221768901234,Plateau rue Félix Faure,Pack Parfums de Dubaï,35000,Ibrahima Ndiaye (Livreur 2),Livré,35000,Espèces,,Immeuble Fahd 3ème étage
+104,Dakar Express Logistique,Babacar Seck,+221701234567,Almadies Zone 15,Sneakers Jordan pointure 43,50000,Ibrahima Ndiaye (Livreur 2),Échec,0,Non réglé,Client absent,Derrière King Fahd Palace portail noir
+105,Dakar Express Logistique,Mariama Ba,+221775556677,Point E rue des Écrivains,Ensemble cosmétique Bio,18000,Moussa Diop (Livreur 1),À livrer,0,Orange Money,,En face Pharmacie du Point E
+106,Baobab Livraison Dakar,Modou Lo,+221778889900,Yoff Tonghor,Pack T-shirts sérigraphiés,15000,Amadou Sow (Livreur 3),Livré,15000,Wave,,Près du terrain de foot
