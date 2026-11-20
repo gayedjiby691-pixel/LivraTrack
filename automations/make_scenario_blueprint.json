@@ -1,0 +1,78 @@
+{
+  "name": "LivraTrack - Recap 19h WhatsApp & Webhook",
+  "nodes": [
+    {
+      "id": 1,
+      "module": "schedule:Clock",
+      "version": 1,
+      "parameters": {
+        "rule": {
+          "time": "19:00",
+          "days": [1, 2, 3, 4, 5, 6, 7]
+        }
+      },
+      "metadata": {
+        "designer": {
+          "x": 100,
+          "y": 100,
+          "name": "Tous les soirs à 19h GMT (Dakar)"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "airtable:searchRecords",
+      "version": 1,
+      "parameters": {
+        "base": "LivraTrack",
+        "table": "Livreurs",
+        "formula": "{Actif}=1"
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 100,
+          "name": "Lister les Livreurs Actifs"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "module": "util:TextAggregator",
+      "version": 1,
+      "parameters": {
+        "row": "👤 {{2.Nom}}\n• Livrées : {{2.Livrées du jour}} | Échecs : {{2.Échecs du jour}}\n• Cash à verser : {{2.Encaissé du jour}} FCFA\n• Attendu : {{2.Attendu du jour}} FCFA\n• Écart : {{2.Écart du jour}} FCFA {{if(2.Écart du jour != 0; \"⚠️ VÉRIFIER\"; \"✅ OK\")}}\n────────────────────\n"
+      },
+      "metadata": {
+        "designer": {
+          "x": 500,
+          "y": 100,
+          "name": "Agrégation du Bilan Quotidien"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "module": "http:ActionSendRequest",
+      "version": 1,
+      "parameters": {
+        "url": "https://api.green-api.com/waInstanceYOUR_ID/sendMessage/YOUR_TOKEN",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": "{\"chatId\":\"221770000000@c.us\",\"message\":\"📊 *BILAN LIVRATRACK DU JOUR (19h00)*\\n\\n{{3.text}}\\nTotal des caisses vérifiées automatiquement.\"}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 700,
+          "y": 100,
+          "name": "Envoi WhatsApp au Gestionnaire"
+        }
+      }
+    }
+  ]
+}

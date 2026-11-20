@@ -31,9 +31,7 @@ Ce document répertorie **15 cibles prioritaires à Dakar** (services de livrais
 - **Message WhatsApp :**
 > *« Salam [Prénom], c'est Djiby. Quand un tiak-tiak tourne 40 minutes parce que le client n'a pas mis de bon repère, c'est de l'essence et de l'argent perdus.*  
 > *LivraTrack envoie un lien WhatsApp au client qui valide son repère et voit le coursier approcher.*  
-> *Puis-je vous faire tester ça gratuitement sur 2 motos pendant 30 jours ? »*
-
-#### 4. Rapido Colis Dakar (Almadies / Ngor)
+> *Puis-je vous faire tester ça gratuitement sur 2 motos pend#### 4. Rapido Colis Dakar (Almadies / Ngor)
 - **Activité :** Livraison premium pour restaurants et boutiques chic.
 - **Pain point :** Image de marque et suivi client soigné.
 - **Message WhatsApp :**
