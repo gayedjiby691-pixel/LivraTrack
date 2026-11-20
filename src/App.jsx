@@ -19,7 +19,8 @@ import {
   Check,
   MapPin,
   HelpCircle,
-  Send
+  Send,
+  Layers
 } from 'lucide-react';
 
 export default function App() {
@@ -444,7 +445,19 @@ export default function App() {
             }`}
           >
             <Send className="w-4 h-4" />
-            <span>{lang === 'fr' ? '4. Outil Générateur WhatsApp' : '4. WhatsApp Link Tool'}</span>
+            <span>{lang === 'fr' ? '4. Outil WhatsApp' : '4. WhatsApp Tool'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('glide')}
+            className={`px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center gap-2 transition-all ${
+              activeTab === 'glide'
+                ? 'bg-brand-500 text-black shadow-lg shadow-brand-500/20'
+                : 'bg-slate-900 border border-emerald-900/60 text-slate-300 hover:text-white'
+            }`}
+          >
+            <Layers className="w-4 h-4" />
+            <span>{lang === 'fr' ? '5. Configuration Glide' : '5. Glide Setup'}</span>
           </button>
         </div>
 
@@ -992,6 +1005,92 @@ export default function App() {
                 <Send className="w-4 h-4" />
                 <span>Tester sur WhatsApp maintenant →</span>
               </a>
+            </div>
+          </div>
+        )}
+
+        {/* Tab 5: Glide Setup Blueprint */}
+        {activeTab === 'glide' && (
+          <div className="max-w-4xl mx-auto bg-slate-900/90 border border-emerald-800/60 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-emerald-900/60 gap-4 mb-6">
+              <div>
+                <span className="text-xs font-mono uppercase text-brand-400">Architecture No-Code</span>
+                <h3 className="text-2xl font-bold text-white">Paramétrage des Écrans Glide</h3>
+              </div>
+              <span className="px-3 py-1 rounded-lg bg-brand-500/20 text-brand-400 text-xs font-mono font-bold">
+                2 Applications Synchronisées
+              </span>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* App 1 */}
+              <div className="p-5 rounded-2xl bg-slate-950/80 border border-emerald-900/50">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono text-emerald-400 font-bold">APP 1 : Privée (Email)</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 font-mono">LivraTrack Ops</span>
+                </div>
+                <h4 className="font-bold text-white text-base mb-2">Gestionnaires & Livreurs</h4>
+                <p className="text-xs text-slate-400 mb-4">
+                  Gérée par les rôles utilisateurs dans Glide (Settings &gt; User Profiles).
+                </p>
+                <div className="space-y-2.5 text-xs">
+                  <div className="p-2.5 rounded-xl bg-slate-900 border border-emerald-950">
+                    <span className="font-mono text-brand-400 font-bold block mb-1">👑 Rôle Gestionnaire :</span>
+                    <ul className="text-slate-300 space-y-1 list-disc list-inside">
+                      <li>Onglet « Aujourd'hui » : Filtre Entreprise, création de courses.</li>
+                      <li>Onglet « Récap Caisse » : Big numbers, écarts de caisse en rouge si différent de 0.</li>
+                    </ul>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-900 border border-emerald-950">
+                    <span className="font-mono text-emerald-300 font-bold block mb-1">🛵 Rôle Livreur :</span>
+                    <ul className="text-slate-300 space-y-1 list-disc list-inside">
+                      <li>Onglet « Mes Livraisons » : Filtre Livreur = User.Nom ET À faire = 1.</li>
+                      <li>Actions en 1 clic : Bouton « J'y vais », « Photo + Montant », « Échec ».</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* App 2 */}
+              <div className="p-5 rounded-2xl bg-slate-950/80 border border-emerald-900/50">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-mono text-accent-wave font-bold">APP 2 : Publique (Sans login)</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] bg-slate-800 text-slate-300 font-mono">LivraTrack Suivi</span>
+                </div>
+                <h4 className="font-bold text-white text-base mb-2">Suivi Client WhatsApp</h4>
+                <p className="text-xs text-slate-400 mb-4">
+                  Accessible via le lien du message WhatsApp sans aucune inscription.
+                </p>
+                <div className="space-y-2.5 text-xs">
+                  <div className="p-2.5 rounded-xl bg-slate-900 border border-emerald-950">
+                    <span className="font-mono text-brand-400 font-bold block mb-1">🔍 Composant Recherche :</span>
+                    <ul className="text-slate-300 space-y-1 list-disc list-inside">
+                      <li>Champ Text Entry relié à une User-specific column.</li>
+                      <li>Pré-rempli automatiquement si l'URL contient ?code=LIV-XXX.</li>
+                    </ul>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-900 border border-emerald-950">
+                    <span className="font-mono text-red-400 font-bold block mb-1">🔒 Règle de Confidentialité :</span>
+                    <ul className="text-slate-300 space-y-1 list-disc list-inside">
+                      <li>Aucun montant d'argent affiché sur cette application.</li>
+                      <li>Téléphone et adresse exacte masqués au grand public.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Checklist des 5 problèmes évités */}
+            <div className="p-4 rounded-xl bg-emerald-950/30 border border-emerald-900/60 text-xs">
+              <span className="font-mono text-brand-400 font-bold block mb-2">
+                🛡️ Les 5 pièges Glide résolus pour Dakar :
+              </span>
+              <div className="grid sm:grid-cols-2 gap-2 text-slate-300">
+                <div>✓ Fuseau horaire configuré sur <strong>GMT (Dakar)</strong> sans décalage.</div>
+                <div>✓ Liens WhatsApp encodés avec <strong>ENCODE_URL_COMPONENT</strong>.</div>
+                <div>✓ Photos légères capturées localement en cas de coupure réseau.</div>
+                <div>✓ Calcul mathématique direct pour les écarts de caisse en temps réel.</div>
+              </div>
             </div>
           </div>
         )}
